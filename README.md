@@ -1,260 +1,162 @@
 # 🌊 Niri Wayland Dotfiles
 
-Configuration personnelle pour **Niri**, un compositeur Wayland avec scrolling infini horizontal.
+Personal configuration for **Niri**, a Wayland compositor with infinite horizontal scrolling.
 
 ---
 
-## 📋 Table des matières
+## 📋 Table of Contents
 
-1. [Qu'est-ce que c'est ?](#quest-ce-que-cest-)
-2. [Stack technique](#stack-technique)
-3. [Prérequis](#prérequis)
-4. [Installation](#installation)
-5. [Structure du repo](#structure-du-repo)
-6. [Raccourcis clavier](#raccourcis-clavier)
-7. [Personnalisation](#personnalisation)
+1. [Tech Stack](#tech-stack)
+2. [Repository Structure](#repository-structure)
+3. [Keyboard Shortcuts](#keyboard-shortcuts)
+4. [Customization](#customization)
+5. [Resources](#resources)
 
 ---
 
-## 🤔 Qu'est-ce que c'est ?
+This repo contains my complete configuration for a minimal and performant desktop environment based on **Niri**.
 
-Ce repo contient ma configuration complète pour un environnement de bureau minimal et performant basé sur **Niri**.
+- **Niri**: Wayland window manager with infinite horizontal scrolling (windows are added in columns to the right)
+- **Wayland**: Modern display protocol replacing X11 (better security, performance, HiDPI support)
 
-### Philosophie
+## 🏗️ Tech Stack
 
-- **Niri** : Gestionnaire de fenêtres Wayland avec scrolling infini horizontal (les fenêtres s'ajoutent en colonnes vers la droite)
-- **Wayland** : Protocole d'affichage moderne remplaçant X11 (meilleure sécurité, performances, support HiDPI)
-- **Minimaliste** : Seulement les outils essentiels, pas d'environnement de bureau complet (pas de GNOME/KDE)
-- **Configurable** : Tout est dans des fichiers texte versionables
+### Compositor & Protocol
 
-### Différence avec un tiling WM classique (i3/Sway)
+- **Niri**: Wayland compositor (the "engine" managing windows)
+- **XWayland-Satellite**: Allows running legacy X11 apps (VS Code, Discord, Steam, etc.)
 
-| Sway/i3 | Niri |
-|---------|------|
-| Subdivise l'écran en zones | Colonnes infinies vers la droite |
-| Fenêtres se redimensionnent automatiquement | Fenêtres gardent leur taille |
-| Navigation 2D limitée | Scroll infini horizontal |
+### User Interface
 
----
+- **Waybar**: Status bar at the top (displays workspaces, network, battery, CPU, RAM, clock)
+- **Fuzzel**: Application launcher (equivalent to Rofi/Wofi for Wayland)
+- **Mako**: Notification daemon (popup when an app notifies you)
 
-## 🏗️ Stack technique
+### System Tools
 
-### Compositeur & Protocole
+- **Alacritty**: GPU-accelerated terminal emulator
+- **Grim + Slurp + Satty**: Complete screenshot stack with annotation
+  - Grim = takes the capture
+  - Slurp = selects the area
+  - Satty = edits/annotates the image
+- **Swaybg**: Wallpaper manager
+- **Swaylock**: Screen locker
+- **Brightnessctl**: Brightness control (Fn+brightness keys)
+- **Pavucontrol**: GUI for audio control
 
-- **Niri** : Compositeur Wayland (le "moteur" qui gère les fenêtres)
-- **XWayland-Satellite** : Permet d'exécuter les apps X11 legacy (VS Code, Discord, Steam, etc.)
+### System Integration
 
-### Interface utilisateur
-
-- **Waybar** : Barre de statut en haut (affiche workspaces, réseau, batterie, CPU, RAM, horloge)
-- **Fuzzel** : Lanceur d'applications (équivalent de Rofi/Wofi pour Wayland)
-- **Mako** : Daemon de notifications (popup quand une app vous notifie)
-
-### Outils système
-
-- **Alacritty** : Émulateur de terminal GPU-accelerated
-- **Grim + Slurp + Satty** : Stack complète de screenshots avec annotation
-  - Grim = prend la capture
-  - Slurp = sélectionne la zone
-  - Satty = édite/annote l'image
-- **Swaybg** : Fond d'écran
-- **Swaylock** : Écran de verrouillage
-- **Brightnessctl** : Contrôle de la luminosité (touches Fn+luminosité)
-- **Pavucontrol** : GUI pour contrôler le son
-
-### Intégration système
-
-- **XDG Desktop Portals** : Permettent aux apps d'accéder au système de manière sécurisée (file picker, partage d'écran)
+- **XDG Desktop Portals**: Allow apps to access the system securely (file picker, screen sharing)
 
 ---
 
-## ✅ Prérequis
-
-- **OS** : Manjaro, Arch Linux, ou toute distro Arch-based
-- **Accès sudo** : Pour installer les packages
-- **Git** : Pour cloner ce repo
-
----
-
-## 📦 Installation
-
-### 1. Cloner le repo
-
-```bash
-git clone https://github.com/VOTRE_USERNAME/dotfiles.git ~/dotfiles
-cd ~/dotfiles
-```
-
-### 2. Installer les packages
-
-```bash
-# Lire la liste des packages avec explications
-cat packages.txt
-
-# Installer tous les packages essentiels
-sudo pacman -S niri xwayland-satellite waybar fuzzel mako \
-               grim slurp satty alacritty swaybg swaylock swayidle \
-               brightnessctl pavucontrol wl-clipboard \
-               xdg-desktop-portal xdg-desktop-portal-gtk xdg-desktop-portal-gnome \
-               ttf-jetbrains-mono-nerd
-```
-
-### 3. Déployer les configs
-
-```bash
-# Lancer le script d'installation (à venir)
-./install.sh
-
-# Ou manuellement :
-cp -r niri ~/.config/
-cp -r waybar ~/.config/
-cp -r fuzzel ~/.config/
-cp -r mako ~/.config/
-```
-
-### 4. Lancer Niri
-
-1. Déconnectez-vous de votre session actuelle
-2. À l'écran de connexion, sélectionnez **Niri** dans le menu des sessions
-3. Connectez-vous
-
----
-
-## 📁 Structure du repo
+## 📁 Repository Structure
 
 ```
 dotfiles/
-├── README.md              # Ce fichier
-├── packages.txt           # Liste des packages avec explications
-├── install.sh             # Script d'installation automatique (à venir)
+├── README.md              # This file
+├── packages.txt           # Package list with explanations
+├── install.sh             # Automated installation script
 ├── niri/
-│   └── config.kdl         # Configuration Niri (raccourcis, layout, startup)
+│   └── config.kdl         # Niri configuration (shortcuts, layout, startup)
 ├── waybar/
-│   ├── config             # Config waybar (modules affichés)
-│   └── style.css          # Style waybar (couleurs, polices)
+│   ├── config             # Waybar config (displayed modules)
+│   └── style.css          # Waybar style (colors, fonts)
 ├── fuzzel/
-│   └── fuzzel.ini         # Config fuzzel (thème, comportement)
+│   └── fuzzel.ini         # Fuzzel config (theme, behavior)
 └── mako/
-    └── config             # Config mako (notifications)
+    └── config             # Mako config (notifications)
 ```
 
 ---
 
-## ⌨️ Raccourcis clavier
+## ⌨️ Keyboard Shortcuts
 
-**Modificateur** : `Super` (touche Windows)
+**Modifier**: `Super` (Windows key)
 
-### Essentiels
+### Essentials
 
-| Raccourci | Action |
-|-----------|--------|
-| `Super + Enter` | Ouvrir un terminal (Alacritty) |
-| `Super + D` | Lanceur d'applications (Fuzzel) |
-| `Super + Q` | Fermer la fenêtre active |
-| `Super + Shift + E` | Quitter Niri |
+| Shortcut | Action |
+|----------|--------|
+| `Super + Enter` | Open terminal (Alacritty) |
+| `Super + D` | Application launcher (Fuzzel) |
+| `Super + Q` | Close active window |
+| `Super + Shift + E` | Quit Niri |
 
-### Navigation (Scrolling horizontal infini)
+### Navigation (Infinite horizontal scrolling)
 
-| Raccourci | Action |
-|-----------|--------|
-| `Super + H/L` ou `←/→` | Naviguer entre colonnes (gauche/droite) |
-| `Super + J/K` ou `↑/↓` | Naviguer entre fenêtres dans une colonne |
-| `Touchpad 3 doigts ←→` | Scroll horizontal entre colonnes |
+| Shortcut | Action |
+|----------|--------|
+| `Super + H/L` or `←/→` | Navigate between columns (left/right) |
+| `Super + J/K` or `↑/↓` | Navigate between windows in a column |
+| `Touchpad 3 fingers ←→` | Horizontal scroll between columns |
 
-### Workspaces (Bureaux virtuels)
+### Workspaces (Virtual desktops)
 
-| Raccourci | Action |
-|-----------|--------|
-| `Super + 1-9` | Aller au workspace 1-9 |
-| `Super + Shift + 1-9` | Déplacer fenêtre vers workspace 1-9 |
-| `Super + U/I` | Naviguer entre workspaces (haut/bas) |
-| `Touchpad 3 doigts ↑↓` | Changer de workspace |
+| Shortcut | Action |
+|----------|--------|
+| `Super + 1-9` | Go to workspace 1-9 |
+| `Super + Shift + 1-9` | Move window to workspace 1-9 |
+| `Super + U/I` | Navigate between workspaces (up/down) |
+| `Touchpad 3 fingers ↑↓` | Switch workspace |
 
-### Gestion des fenêtres
+### Window Management
 
-| Raccourci | Action |
-|-----------|--------|
-| `Super + Shift + H/J/K/L` | Déplacer la fenêtre |
-| `Super + F` | Plein écran |
-| `Super + -/+` | Réduire/agrandir largeur colonne |
-| `Super + Shift + -/+` | Réduire/agrandir hauteur fenêtre |
+| Shortcut | Action |
+|----------|--------|
+| `Super + Shift + H/J/K/L` | Move window |
+| `Super + F` | Fullscreen |
+| `Super + -/+` | Decrease/increase column width |
+| `Super + Shift + -/+` | Decrease/increase window height |
 
 ### Screenshots
 
-| Raccourci | Action |
-|-----------|--------|
-| `Print` | Screenshot complet |
-| `Super + Shift + S` | **Screenshot zone + annotation (Satty)** |
-| `Shift + Print` | Screenshot d'un écran (multi-moniteurs) |
-| `Ctrl + Print` | Screenshot de la fenêtre active |
+| Shortcut | Action |
+|----------|--------|
+| `Print` | Full screenshot |
+| `Super + Shift + S` | **Screenshot area + annotation (Satty)** |
+| `Shift + Print` | Screenshot of a screen (multi-monitor) |
+| `Ctrl + Print` | Screenshot of active window |
 
-### Système
+### System
 
-| Raccourci | Action |
-|-----------|--------|
-| `Super + Shift + C` | Recharger la config Niri |
-| `Fn + Luminosité` | Contrôler la luminosité (brightnessctl) |
-| `Fn + Volume` | Contrôler le volume (pactl) |
+| Shortcut | Action |
+|----------|--------|
+| `Super + Shift + C` | Reload Niri config |
+| `Fn + Brightness` | Control brightness (brightnessctl) |
+| `Fn + Volume` | Control volume (pactl) |
 
 ---
 
-## 🎨 Personnalisation
+## 🎨 Customization
 
-### Changer le fond d'écran
+### Change Wallpaper
 
-Éditez `~/.config/niri/config.kdl` :
+Edit `~/.config/niri/config.kdl`:
 
 ```kdl
-spawn-at-startup "swaybg" "-i" "/chemin/vers/votre/wallpaper.png" "-m" "fill"
+spawn-at-startup "swaybg" "-i" "/path/to/your/wallpaper.png" "-m" "fill"
 ```
 
-### Modifier les couleurs (Tokyo Night déjà configuré)
+### Modify Colors (Tokyo Night already configured)
 
-Niri utilise des couleurs **Tokyo Night** par défaut :
-- Bordure active : `#7aa2f7` (bleu)
-- Bordure inactive : `#565f89` (gris)
+Niri uses **Tokyo Night** colors by default:
+- Active border: `#7aa2f7` (blue)
+- Inactive border: `#565f89` (gray)
 
-Pour changer, éditez `~/.config/niri/config.kdl` section `layout { border { ... } }`.
+To change, edit `~/.config/niri/config.kdl` section `layout { border { ... } }`.
 
-### Personnaliser Waybar
+### Customize Waybar
 
-- **Modules** : `~/.config/waybar/config`
-- **Style** : `~/.config/waybar/style.css`
-
----
-
-## 🐛 Troubleshooting
-
-### Niri ne démarre pas (écran noir)
-
-1. Vérifiez les logs : `journalctl -b -0 | grep niri`
-2. Testez la config : `niri validate`
-3. Désactivez temporairement waybar/mako dans `config.kdl`
-
-### Touches de luminosité/volume ne marchent pas
-
-- Installez `brightnessctl` et `pulseaudio`
-- Vérifiez les binds dans `~/.config/niri/config.kdl`
-
-### Apps X11 ne se lancent pas (VS Code, Discord)
-
-- Installez `xwayland-satellite`
-- Vérifiez qu'il démarre : `spawn-at-startup "xwayland-satellite"`
+- **Modules**: `~/.config/waybar/config`
+- **Style**: `~/.config/waybar/style.css`
 
 ---
 
-## 📚 Ressources
+## 📚 Resources
 
-- [Documentation Niri officielle](https://github.com/YaLTeR/niri)
-- [Wiki Arch Wayland](https://wiki.archlinux.org/title/Wayland)
-- [Waybar exemples](https://github.com/Alexays/Waybar/wiki/Examples)
-
----
-
-## 📝 License
-
-MIT - Libre d'utilisation et modification
+- [Official Niri Documentation](https://github.com/YaLTeR/niri)
+- [Arch Wayland Wiki](https://wiki.archlinux.org/title/Wayland)
+- [Waybar Examples](https://github.com/Alexays/Waybar/wiki/Examples)
 
 ---
-
-**Fait avec ❤️ et beaucoup de café ☕**
