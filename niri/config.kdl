@@ -174,13 +174,9 @@ binds {
     // Plein écran
     Mod+F { fullscreen-window; }
 
-    // Screenshots
+    // Screenshots (clipboard + fichier)
     Print { screenshot; }
-    Shift+Print { screenshot-screen; }
-    Ctrl+Print { screenshot-window; }
-
-    // Screenshot avec annotation (Satty)
-    Mod+Shift+S { spawn "sh" "-c" "grim -g \"$(slurp)\" - | satty --filename - --fullscreen --output-filename ~/Images/satty-$(date '+%Y%m%d-%H%M%S').png"; }
+    Mod+Shift+S { spawn "sh" "-c" "grim -g \"$(slurp)\" - | wl-copy --type image/png"; }
 
     // Contrôle média
     XF86AudioRaiseVolume { spawn "pactl" "set-sink-volume" "@DEFAULT_SINK@" "+5%"; }

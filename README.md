@@ -31,8 +31,10 @@ dotfiles/
 │   └── config.toml        # Editor configuration
 ├── fuzzel/
 │   └── fuzzel.ini         # Launcher configuration
-└── mako/
-    └── config             # Notification configuration
+├── mako/
+│   └── config             # Notification configuration
+└── bin/
+    └── lastshot           # Script to find latest screenshot
 ```
 
 ## ✨ Key Customizations
@@ -41,6 +43,7 @@ dotfiles/
 - 8px gaps between windows
 - 3px gradient borders (pink → yellow)
 - Touchpad gestures for workspace navigation
+- Screenshots: `Print` (full screen), `Super+Shift+S` (area selection) → clipboard + file
 
 ### Waybar
 - Minimal horizontal layout
