@@ -1,24 +1,18 @@
 * {
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: 'Adwaita Sans', 'Font Awesome 6 Free';
+    font-family: Cantarell, 'Font Awesome 6 Free';
     font-size: 14px;
     font-feature-settings: "tnum";
 }
 
 window#waybar {
     background: transparent;
-    background-color: rgba(30, 30, 46, 1.0);
-    border-right: 1px solid #6c7086;
-    /* background-color: black; */
+    /* background-color: rgba(30, 30, 46, 0.5); */
     /* border-bottom: 2px solid rgba(147, 153, 178, 0.5); */
     /* border: 1px solid rgba(166, 173, 200, 1.0); */
     color: #ffffff;
     /* transition-property: background-color; */
     /* transition-duration: .5s; */
-}
-
-window#waybar > box {
-    /* padding: 4px 0; */
 }
 
 window#waybar.hidden {
@@ -34,24 +28,14 @@ window#waybar.solo {
 }
 */
 
-/* window#waybar.termite { */
-/*     background-color: #3F3F3F; */
-/* } */
+window#waybar.termite {
+    background-color: #3F3F3F;
+}
 
-/* window#waybar.empty { */
-/*     border: 2px solid red; */
-/* } */
-/**/
-/* window#waybar.solo { */
-/*     border: 2px solid green; */
-/* } */
-
-/* window#waybar.Alacritty { */
-/*     border: 2px solid green; */
-/* } */
-/* window#waybar.chromium-browser { */
-/*     border: 2px solid red; */
-/* } */
+window#waybar.chromium {
+    background-color: #000000;
+    border: none;
+}
 
 button {
     /* Use box-shadow instead of border so the text isn't offset */
@@ -60,7 +44,6 @@ button {
     border: none;
     border-radius: 0;
     transition-property: none;
-    /* padding: 10px 0; */
 }
 
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
@@ -74,38 +57,23 @@ button:hover {
 }
 
 #workspaces button {
-    padding: 0 0;
-    color: #f0f0ff;
-    border-right: 1px solid #6c7086;
+    padding: 0 5px;
+    background-color: transparent;
+    color: #ffffff;
 }
 
 #workspaces button:hover {
-    background-color: rgba(49, 50, 68, 1.0);
+    background: rgba(0, 0, 0, 0.2);
 }
 
-#workspaces button.active {
-    background-color: rgba(88, 91, 112, 1.0);
-}
-
-#workspaces button.active:hover {
-    background-color: rgba(108, 112, 134, 1.0);
+#workspaces button.focused {
+    background-color: #64727D;
+    box-shadow: inset 0 -3px #ffffff;
 }
 
 #workspaces button.urgent {
     background-color: #eb4d4b;
 }
-
-/* #workspaces button#niri-workspace-browser { */
-/*     border: 1px solid red; */
-/* } */
-
-/* #workspaces button.empty { */
-/*     background-color: red; */
-/* } */
-
-/* #workspaces button.current_output { */
-/*     border: 1px solid green; */
-/* } */
 
 #mode {
     background-color: #64727D;
@@ -115,7 +83,6 @@ button:hover {
 #clock,
 #battery,
 #cpu,
-#custom-keyboard-layout,
 #memory,
 #disk,
 #temperature,
@@ -128,23 +95,16 @@ button:hover {
 #mode,
 #idle_inhibitor,
 #scratchpad,
-#language,
-#mpd,
-#custom-style {
-    /* padding: 0 10px; */
+#mpd {
+    padding: 0 10px;
     color: #f0f0ff;
-    /* background-color: rgba(255, 30, 46, 1.0); */
-    /* border-radius: 99px; */
-    padding: 8px 8px;
-}
-
-#custom-notification {
-    min-height: 32px;
+    background-color: rgba(30, 30, 46, 0.6);
+    border-radius: 99px;
 }
 
 #window,
 #workspaces {
-    /* margin: 0 4px; */
+    margin: 0 4px;
 }
 
 /* If workspaces is the leftmost module, omit left margin */
@@ -159,17 +119,15 @@ button:hover {
 
 #clock {
     /* background-color: #64727D; */
-    /* font-weight: bold; */
+    font-weight: bold;
     /* background-color: rgba(0, 0, 0, 0.3); */
     /* border-radius: 99px; */
 }
 
 #battery {
-    /* background-color: #585b70; */
-    background-color: #313244;
-    border-right: 1px solid #6c7086;
+    /* background-color: #f9e2af; */
     /* color: #000000; */
-    /* margin-top: 4px; */
+    margin-left: 4px;
 }
 
 /*
@@ -201,20 +159,17 @@ label:focus {
 }
 
 #cpu {
-    background-color: #313244;
-    border-right: 1px solid #6c7086;
+    /* background-color: #f38ba8; */
     /* color: #000000; */
-    /* border-radius: 99px 99px 0px 0px; */
-    /* padding: 10px 0 0 0; */
-    /* margin-top: 4px; */
+    border-radius: 99px 0px 0px 99px;
+    padding: 0 0 0 10px;
+    margin-left: 4px;
 }
 
 #memory {
-    /* background-color: #45475a; */
-    background-color: #313244;
-    border-right: 1px solid #6c7086;
+    /* background-color: #fab387; */
     /* color: #000000; */
-    /* border-radius: 0px 99px 99px 0px; */
+    border-radius: 0px 99px 99px 0px;
     /* padding: 0 10px 0 0; */
 }
 
@@ -238,47 +193,36 @@ label:focus {
 */
 
 #taskbar {
-    /* margin-left: 4px; */
+    margin-left: 4px;
 }
 
 #taskbar button {
     color: #f0f0ff;
-    padding: 8px 8px 0 8px;
-    border-right: 1px solid #6c7086;
-    /* background-color: rgba(30, 30, 46, 1.0); */
-    /* padding: 0; */
+    background-color: rgba(30, 30, 46, 0.6);
 }
 
 #taskbar button:first-child {
-    /* border-radius: 99px 0 0 99px; */
+    border-radius: 99px 0 0 99px;
 }
 
 #taskbar button:last-child {
-    /* border-radius: 0 99px 99px 0; */
+    border-radius: 0 99px 99px 0;
 }
 
 #taskbar button:first-child:last-child {
-    /* border-radius: 99px; */
+    border-radius: 99px;
 }
 
 #taskbar button:hover {
-    background-color: rgba(49, 50, 68, 1.0);
+    background-color: rgba(49, 50, 68, 0.6);
 }
 
 #taskbar button.active {
-    background-color: rgba(88, 91, 112, 1.0);
+    background-color: rgba(88, 91, 112, 0.6);
 }
 
 #taskbar button.active:hover {
-    background-color: rgba(108, 112, 134, 1.0);
-}
-
-#custom-style {
-    border-right: 1px solid #6c7086;
-}
-
-#custom-style:hover {
-    background-color: rgba(49, 50, 68, 1.0);
+    background-color: rgba(108, 112, 134, 0.6);
 }
 
 #pulseaudio {
@@ -359,6 +303,14 @@ label:focus {
 
 #mpd.paused {
     background-color: #51a37a;
+}
+
+#language {
+    background: #00b093;
+    color: #740864;
+    padding: 0 5px;
+    margin: 0 5px;
+    min-width: 16px;
 }
 
 #keyboard-state {
