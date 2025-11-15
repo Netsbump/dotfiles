@@ -99,6 +99,8 @@ dotfiles/
 | `Super + Shift + 1-9` | Move window to workspace 1-9 |
 | `Super + U/I` | Navigate between workspaces (up/down) |
 | `Touchpad 3 fingers ↑↓` | Switch workspace |
+| `Touchpad 4 fingers ↑` | **Workspace overview** |
+| `Touchpad 4 fingers ↓` | **Exit overview** |
 
 ### Window Management
 
