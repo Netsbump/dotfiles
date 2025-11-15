@@ -1,41 +1,31 @@
+// Waybar Config - Based on YaLTeR's dotfiles
+// vim: ft=jsonc
 {
     "layer": "top",
     "position": "top",
-    "height": 30,
-    "spacing": 4,
+    "spacing": 0,
 
-    "modules-left": ["sway/workspaces", "sway/mode"],
-    "modules-center": ["sway/window"],
-    "modules-right": ["pulseaudio", "network", "cpu", "memory", "battery", "clock", "tray"],
+    "modules-left": [
+        "network",
+        "niri/workspaces"
+    ],
+    "modules-center": ["clock"],
+    "modules-right": ["cpu", "memory", "battery", "tray"],
 
-    "sway/workspaces": {
-        "disable-scroll": false,
-        "all-outputs": true,
-        "format": "{name}",
+    "niri/workspaces": {
+        "format": "{icon}",
         "format-icons": {
-            "1": "1",
-            "2": "2",
-            "3": "3",
-            "4": "4",
-            "5": "5",
-            "urgent": "",
-            "focused": "",
-            "default": ""
+            "browser": "",
+            "discord": "",
+            "chat": "<b></b>",
+            "default": "◦"
         }
     },
 
-    "sway/mode": {
-        "format": "<span style=\"italic\">{}</span>"
-    },
-
-    "sway/window": {
-        "format": "{}",
-        "max-length": 50,
-        "rewrite": {
-            "(.*) - Mozilla Firefox": "🌎 $1",
-            "(.*) - Visual Studio Code": " $1",
-            "Alacritty": " Terminal"
-        }
+    "niri/window": {
+        "separate-outputs": true,
+        "icon": true,
+        "icon-size": 16
     },
 
     "tray": {
@@ -43,20 +33,17 @@
     },
 
     "clock": {
-        "format": "{:%H:%M  %d/%m/%Y}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%A, %d %B %Y}"
+        "format": "{:%H:%M  %d/%m}"
     },
 
     "cpu": {
-        "format": " {usage}%",
-        "tooltip": true,
-        "interval": 2
+        "format": "{usage}",
+        "tooltip": false
     },
 
     "memory": {
-        "format": " {}%",
-        "tooltip-format": "RAM: {used:0.1f}G / {total:0.1f}G"
+        "format": "{}"
     },
 
     "battery": {
@@ -64,33 +51,18 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "{icon} {capacity}%",
-        "format-charging": " {capacity}%",
-        "format-plugged": " {capacity}%",
-        "format-alt": "{icon} {time}",
+        "format": "{capacity}",
+        "format-charging": "{capacity}",
+        "format-plugged": "{capacity}",
+        "format-alt": "{time} {icon}",
         "format-icons": ["", "", "", "", ""]
     },
 
     "network": {
-        "format-wifi": " {essid} ({signalStrength}%)",
-        "format-ethernet": " {ifname}",
-        "format-disconnected": "⚠ Disconnected",
-        "tooltip-format": "{ifname}: {ipaddr}/{cidr}",
-        "on-click": "nm-connection-editor"
-    },
-
-    "pulseaudio": {
-        "format": "{icon} {volume}%",
-        "format-muted": " Muted",
-        "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", "", ""]
-        },
-        "on-click": "pavucontrol"
+        "format-wifi": "",
+        "format-ethernet": "",
+        "tooltip-format": "{ifname} via {gwaddr}",
+        "format-linked": "",
+        "format-disconnected": "⚠"
     }
 }

@@ -1,0 +1,66 @@
+
+[terminal.shell]
+program = "/bin/bash"
+# Uncomment if you use fish: program = "/usr/bin/fish"
+
+[window]
+# Padding around the terminal
+padding.x = 1
+padding.y = 0
+
+# Window opacity (0.0 - 1.0)
+opacity = 0.98
+
+# Window decorations
+# Options: "full" (default with rounded corners), "none" (no decorations, square)
+decorations = "none"
+
+[font]
+# Font size
+size = 10.5
+
+# Font family options (uncomment your preference)
+# normal.family = "Iosevka Term"
+# normal.family = "JetBrainsMono Nerd Font"
+# normal.family = "Fira Code"
+normal.family = "JetBrainsMono Nerd Font"
+
+[cursor]
+# Cursor style
+style.shape = "Block"
+# style.blinking = "Off"
+
+[scrolling]
+# Maximum number of lines in the scrollback buffer
+history = 10000
+
+[[hints.enabled]]
+# URL hints - Ctrl+Shift+T to open URLs
+command = "xdg-open"
+hyperlinks = true
+post_processing = true
+persist = false
+mouse.enabled = true
+binding = { key = "T", mods = "Control|Shift" }
+regex = "(ipfs:|ipns:|magnet:|mailto:|gemini://|gopher://|https://|http://|news:|file:|git://|ssh:|ftp://)[^\u0000-\u001f\u007f-\u009f<>\"\\s{-}\\^⟨⟩`]+"
+
+[[hints.enabled]]
+# Hash/hex hints - Ctrl+Shift+H to copy
+command = "wl-copy"
+post_processing = true
+persist = false
+mouse.enabled = true
+binding = { key = "H", mods = "Control|Shift" }
+regex = "[0-9a-f]{7,64}"
+
+[general]
+# Alacritty Configuration - Catppuccin Mocha Theme
+# Based on YaLTeR's dotfiles
+
+# Import Catppuccin Mocha color scheme
+# You may need to download: https://github.com/catppuccin/alacritty
+import = [
+    "~/.config/alacritty/catppuccin-mocha.toml"
+]
+
+[terminal]

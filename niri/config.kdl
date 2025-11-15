@@ -24,29 +24,51 @@ input {
 
 // ===== LAYOUT CONFIGURATION =====
 layout {
-    // Espaces entre les fenêtres
-    gaps 16
+    // Spacing between windows (YaLTeR uses 4px, we use 8px as a middle ground)
+    // Smaller gaps = more screen real estate, cleaner look
+    gaps 8
 
-    // Centrer les colonnes si une seule fenêtre
+    // Center single column windows when they don't fill the screen
     center-focused-column "on-overflow"
 
-    // Largeur par défaut des nouvelles fenêtres (proportion de l'écran)
+    // Default width for new windows (50% of screen width)
     default-column-width { proportion 0.5; }
 
-    // Focus ring autour de la fenêtre active
+    // Focus ring around active window
+    // Set to width 0 to disable (we rely on border gradients instead)
     focus-ring {
-        width 2
-        // Tokyo Night blue
-        active-color "#7aa2f7"
-        inactive-color "#565f89"
+        width 0
+        // Catppuccin Mocha Pink (if enabled)
+        // active-color "#f38ba8"
+        // inactive-color "#6c7086"
     }
 
-    // Bordures des fenêtres
+    // Window borders with gradient (like YaLTeR's config)
+    // Active window gets a gradient from pink to yellow (Catppuccin Mocha)
     border {
-        width 2
-        // Tokyo Night colors
-        active-color "#7aa2f7"
-        inactive-color "#565f89"
+        width 3
+
+        // Gradient for active window: pink (#f38ba8) → yellow (#f9e2af)
+        // This creates a beautiful color transition on the border
+        active-gradient from="#f38ba8" to="#f9e2af" angle=45
+
+        // Inactive windows get a subtle dark gray
+        inactive-color "#313244"
+    }
+
+    // Shadow effects (disabled for cleaner look)
+    // NOTE: shadow { off } requires niri-git, not supported in stable 25.08
+    // shadow {
+    //     off
+    // }
+
+    // Struts (reserved space for bars/panels)
+    // Set to 0 because waybar is floating and doesn't need reserved space
+    struts {
+        left 0
+        right 0
+        top 0
+        bottom 0
     }
 }
 
@@ -69,10 +91,22 @@ spawn-at-startup "swaybg" "-i" "/usr/share/backgrounds/sway/Sway_Wallpaper_Blue_
 screenshot-path "~/Images/screenshot-%Y-%m-%d_%H-%M-%S.png"
 
 // ===== WINDOW RULES =====
+// Prefer client-side decorations (commented - use default)
+// prefer-no-csd
+
 // Exemples de règles par application
 window-rule {
     match app-id="^org\\.keepassxc\\.KeePassXC$"
     default-column-width { proportion 0.3; }
+
+    // Rounded corners options (not supported in current Niri version)
+    // geometry-corner-radius 6
+    // geometry-corner-radius 15
+    // geometry-corner-radius 32
+
+    // Additional decoration options
+    // clip-to-geometry true
+    // draw-border-with-background false
 }
 
 // ===== KEY BINDINGS =====

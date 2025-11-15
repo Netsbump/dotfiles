@@ -1,29 +1,26 @@
-# Configuration Mako (notifications)
+# Mako Configuration - Catppuccin Mocha Theme
+# Based on YaLTeR's dotfiles
 
-# Position des notifications (top-right, top-left, bottom-right, bottom-left, top-center, bottom-center, center)
-anchor=top-right
-margin=10
-
-# Apparence
-font=Roboto 11
-background-color=#2b303b
-text-color=#ffffff
-border-color=#64727D
+layer=top
+background-color=#1e1e2eee
 border-size=2
-border-radius=5
-
-# Dimensions
-width=300
-height=100
-padding=10
-
-# Comportement
+border-color=#74c7ec
+border-radius=8
 default-timeout=5000
-ignore-timeout=0
+font=Cantarell 12
+#output=eDP-1
 
-# Icônes
-icons=1
-max-icon-size=48
+[urgency=high]
+layer=overlay
+border-color=#f38ba8
 
-# Groupement des notifications
-group-by=app-name
+[desktop-entry="org.telegram.desktop"]
+layer=top
+border-color=#74c7ec
+
+[desktop-entry="org.gnome.Fractal"]
+layer=top
+border-color=#74c7ec
+
+[mode=dnd]
+invisible=1
