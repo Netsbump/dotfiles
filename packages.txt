@@ -1,0 +1,38 @@
+# Niri Wayland Setup - Liste des packages (Manjaro/Arch)
+# Format: nom_package | explication technique (1 ligne)
+
+## === CORE SYSTEM ===
+niri                          | Compositeur Wayland avec scrolling infini horizontal pour la gestion des fenêtres
+xwayland-satellite            | Serveur XWayland permettant d'exécuter les applications X11 legacy (VS Code, Discord, etc.) sous Niri
+
+## === INTERFACE UTILISATEUR ===
+waybar                        | Barre de statut personnalisable affichant workspaces, réseau, batterie, CPU, RAM, horloge
+fuzzel                        | Lanceur d'applications minimaliste et rapide basé sur fuzzy search pour Wayland
+mako                          | Daemon de notifications léger pour Wayland (standard de la communauté)
+
+## === SCREENSHOT & ANNOTATION ===
+grim                          | Outil de capture d'écran pour compositeurs Wayland (backend qui prend la photo)
+slurp                         | Sélecteur de zone interactif pour Wayland (permet de dessiner la zone à capturer)
+satty                         | Outil moderne d'annotation de screenshots avec interface graphique (édition post-capture)
+
+## === TERMINAL & BACKGROUND ===
+alacritty                     | Émulateur de terminal GPU-accelerated avec support Wayland natif
+swaybg                        | Outil pour définir le fond d'écran sous les compositeurs Wayland
+swaylock                      | Écran de verrouillage sécurisé pour Wayland
+swayidle                      | Daemon de gestion d'inactivité (verrouillage auto, extinction écran)
+
+## === SYSTEM UTILITIES ===
+brightnessctl                 | Contrôle la luminosité de l'écran (nécessaire pour les touches Fn+luminosité du laptop)
+pavucontrol                   | Interface graphique GTK pour contrôler PulseAudio (volume, périphériques audio, apps)
+wl-clipboard                  | Utilitaires CLI de presse-papier pour Wayland (wl-copy, wl-paste)
+
+## === PORTALS XDG ===
+xdg-desktop-portal            | Service de portail permettant aux apps d'accéder aux ressources système de manière sécurisée
+xdg-desktop-portal-gtk        | Backend GTK pour le portail (sélecteur de fichiers, permissions)
+xdg-desktop-portal-gnome      | Backend GNOME pour le portail (nécessaire pour le partage d'écran/screencasting)
+
+## === FONTS ===
+ttf-jetbrains-mono-nerd       | Police monospace JetBrains Mono avec icônes Nerd Font (utilisée dans waybar pour les symboles)
+
+## === AUDIO (généralement pré-installé) ===
+pulseaudio                    | Serveur audio (probablement déjà installé sur votre système)

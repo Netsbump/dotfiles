@@ -1,0 +1,29 @@
+# Configuration Mako (notifications)
+
+# Position des notifications (top-right, top-left, bottom-right, bottom-left, top-center, bottom-center, center)
+anchor=top-right
+margin=10
+
+# Apparence
+font=Roboto 11
+background-color=#2b303b
+text-color=#ffffff
+border-color=#64727D
+border-size=2
+border-radius=5
+
+# Dimensions
+width=300
+height=100
+padding=10
+
+# Comportement
+default-timeout=5000
+ignore-timeout=0
+
+# Icônes
+icons=1
+max-icon-size=48
+
+# Groupement des notifications
+group-by=app-name

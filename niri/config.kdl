@@ -1,0 +1,177 @@
+// Configuration Niri personnalisée
+// Format KDL - https://github.com/YaLTeR/niri
+
+// ===== INPUT CONFIGURATION =====
+input {
+    keyboard {
+        xkb {
+            layout "us"
+        }
+    }
+
+    touchpad {
+        tap
+        natural-scroll
+        accel-speed 0.2
+    }
+
+    mouse {
+        accel-speed 0.2
+    }
+
+    focus-follows-mouse
+}
+
+// ===== LAYOUT CONFIGURATION =====
+layout {
+    // Espaces entre les fenêtres
+    gaps 16
+
+    // Centrer les colonnes si une seule fenêtre
+    center-focused-column "on-overflow"
+
+    // Largeur par défaut des nouvelles fenêtres (proportion de l'écran)
+    default-column-width { proportion 0.5; }
+
+    // Focus ring autour de la fenêtre active
+    focus-ring {
+        width 2
+        // Tokyo Night blue
+        active-color "#7aa2f7"
+        inactive-color "#565f89"
+    }
+
+    // Bordures des fenêtres
+    border {
+        width 2
+        // Tokyo Night colors
+        active-color "#7aa2f7"
+        inactive-color "#565f89"
+    }
+}
+
+// ===== OUTPUT CONFIGURATION =====
+// Ajustez selon votre écran si besoin
+// output "eDP-1" {
+//     scale 1.0
+//     mode "1920x1080@60"
+// }
+
+// ===== STARTUP PROGRAMS =====
+spawn-at-startup "waybar"
+spawn-at-startup "xwayland-satellite"
+spawn-at-startup "swaybg" "-i" "/usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png" "-m" "fill"
+
+// Optionnel : notifications
+// spawn-at-startup "mako"
+
+// ===== SCREENSHOTS =====
+screenshot-path "~/Images/screenshot-%Y-%m-%d_%H-%M-%S.png"
+
+// ===== WINDOW RULES =====
+// Exemples de règles par application
+window-rule {
+    match app-id="^org\\.keepassxc\\.KeePassXC$"
+    default-column-width { proportion 0.3; }
+}
+
+// ===== KEY BINDINGS =====
+binds {
+    // Modificateur principal : Super (touche Windows)
+    Mod+Return { spawn "alacritty"; }
+    Mod+D { spawn "fuzzel"; }
+    Mod+Q { close-window; }
+
+    // Navigation entre fenêtres
+    Mod+Left  { focus-column-left; }
+    Mod+Down  { focus-window-down; }
+    Mod+Up    { focus-window-up; }
+    Mod+Right { focus-column-right; }
+
+    // Style Vim (hjkl)
+    Mod+H     { focus-column-left; }
+    Mod+J     { focus-window-down; }
+    Mod+K     { focus-window-up; }
+    Mod+L     { focus-column-right; }
+
+    // Déplacement de fenêtres
+    Mod+Shift+Left  { move-column-left; }
+    Mod+Shift+Down  { move-window-down; }
+    Mod+Shift+Up    { move-window-up; }
+    Mod+Shift+Right { move-column-right; }
+
+    Mod+Shift+H { move-column-left; }
+    Mod+Shift+J { move-window-down; }
+    Mod+Shift+K { move-window-up; }
+    Mod+Shift+L { move-column-right; }
+
+    // Workspaces (espaces de travail)
+    Mod+1 { focus-workspace 1; }
+    Mod+2 { focus-workspace 2; }
+    Mod+3 { focus-workspace 3; }
+    Mod+4 { focus-workspace 4; }
+    Mod+5 { focus-workspace 5; }
+    Mod+6 { focus-workspace 6; }
+    Mod+7 { focus-workspace 7; }
+    Mod+8 { focus-workspace 8; }
+    Mod+9 { focus-workspace 9; }
+
+    // Déplacer fenêtre vers workspace
+    Mod+Shift+1 { move-column-to-workspace 1; }
+    Mod+Shift+2 { move-column-to-workspace 2; }
+    Mod+Shift+3 { move-column-to-workspace 3; }
+    Mod+Shift+4 { move-column-to-workspace 4; }
+    Mod+Shift+5 { move-column-to-workspace 5; }
+    Mod+Shift+6 { move-column-to-workspace 6; }
+    Mod+Shift+7 { move-column-to-workspace 7; }
+    Mod+Shift+8 { move-column-to-workspace 8; }
+    Mod+Shift+9 { move-column-to-workspace 9; }
+
+    // Scrolling dans les colonnes (spécifique à Niri !)
+    Mod+U { focus-workspace-down; }
+    Mod+I { focus-workspace-up; }
+
+    // Contrôle de la largeur des colonnes
+    Mod+Minus { set-column-width "-10%"; }
+    Mod+Equal { set-column-width "+10%"; }
+    Mod+Shift+Minus { set-window-height "-10%"; }
+    Mod+Shift+Equal { set-window-height "+10%"; }
+
+    // Plein écran
+    Mod+F { fullscreen-window; }
+
+    // Screenshots
+    Print { screenshot; }
+    Shift+Print { screenshot-screen; }
+    Ctrl+Print { screenshot-window; }
+
+    // Screenshot avec annotation (Satty)
+    Mod+Shift+S { spawn "sh" "-c" "grim -g \"$(slurp)\" - | satty --filename - --fullscreen --output-filename ~/Images/satty-$(date '+%Y%m%d-%H%M%S').png"; }
+
+    // Contrôle média
+    XF86AudioRaiseVolume { spawn "pactl" "set-sink-volume" "@DEFAULT_SINK@" "+5%"; }
+    XF86AudioLowerVolume { spawn "pactl" "set-sink-volume" "@DEFAULT_SINK@" "-5%"; }
+    XF86AudioMute        { spawn "pactl" "set-sink-mute" "@DEFAULT_SINK@" "toggle"; }
+    XF86AudioMicMute     { spawn "pactl" "set-source-mute" "@DEFAULT_SOURCE@" "toggle"; }
+
+    // Luminosité
+    XF86MonBrightnessUp   { spawn "brightnessctl" "set" "5%+"; }
+    XF86MonBrightnessDown { spawn "brightnessctl" "set" "5%-"; }
+
+    // Quitter Niri
+    Mod+Shift+E { quit; }
+
+    // Recharger la config
+    Mod+Shift+C { spawn "niri" "msg" "action" "reload-config"; }
+}
+
+// ===== ANIMATIONS =====
+// Ajustez selon vos préférences
+animations {
+    slowdown 1.0
+}
+
+// Désactiver le popup des raccourcis au démarrage
+hotkey-overlay {
+    skip-at-startup
+}
