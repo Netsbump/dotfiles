@@ -1,0 +1,43 @@
+# Configuration des langages pour TypeScript/React et Rust
+
+# Configuration LSP TypeScript avec inlay hints
+[language-server.typescript-language-server]
+command = "typescript-language-server"
+args = ["--stdio"]
+
+[language-server.typescript-language-server.config.preferences]
+includeInlayParameterNameHints = "all"
+includeInlayFunctionParameterTypeHints = true
+
+# TypeScript
+[[language]]
+name = "typescript"
+language-servers = ["typescript-language-server"]
+formatter = { command = "prettier", args = ["--parser", "typescript"] }
+auto-format = true
+
+# TSX (React TypeScript)
+[[language]]
+name = "tsx"
+language-servers = ["typescript-language-server"]
+formatter = { command = "prettier", args = ["--parser", "typescript"] }
+auto-format = true
+
+# JavaScript
+[[language]]
+name = "javascript"
+language-servers = ["typescript-language-server"]
+formatter = { command = "prettier", args = ["--parser", "babel"] }
+auto-format = true
+
+# JSX (React JavaScript)
+[[language]]
+name = "jsx"
+language-servers = ["typescript-language-server"]
+formatter = { command = "prettier", args = ["--parser", "babel"] }
+auto-format = true
+
+# Rust
+[[language]]
+name = "rust"
+auto-format = true

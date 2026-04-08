@@ -1,3 +1,0 @@
-#!/bin/bash
-# Find the most recent screenshot in ~/Images/
-ls -t ~/Images/screenshot-*.png 2>/dev/null | head -n1

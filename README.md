@@ -1,61 +1,33 @@
 # dotfiles
 
-Personal configuration files for my development environment.
+Config files for Helix, Fish, and Alacritty.
 
-## 🎨 Theme
+## Contents
 
-All applications are configured with the **Catppuccin Mocha** color scheme for a consistent visual experience.
+| App | Files |
+|-----|-------|
+| [Helix](https://helix-editor.com) | `config.toml`, `languages.toml` |
+| [Fish](https://fishshell.com) | `config.fish` |
+| [Alacritty](https://alacritty.org) | `alacritty.toml`, `dank-theme.toml` |
 
-## 📦 Configured Applications
+## Install
 
-- **Niri** - Wayland compositor with infinite horizontal scrolling
-- **Waybar** - Status bar (horizontal, top position)
-- **Alacritty** - Terminal emulator
-- **Helix** - Text editor
-- **Fuzzel** - Application launcher
-- **Mako** - Notification daemon
-
-## 📁 Repository Structure
-
-```
-dotfiles/
-├── niri/
-│   └── config.kdl         # Window manager configuration
-├── waybar/
-│   ├── config             # Status bar modules
-│   └── style.css          # Catppuccin Mocha styling
-├── alacritty/
-│   ├── alacritty.toml     # Terminal configuration
-│   └── catppuccin-mocha.toml
-├── helix/
-│   └── config.toml        # Editor configuration
-├── fuzzel/
-│   └── fuzzel.ini         # Launcher configuration
-├── mako/
-│   └── config             # Notification configuration
-└── bin/
-    └── lastshot           # Script to find latest screenshot
+```bash
+git clone git@github.com:Netsbump/dotfiles.git ~/dotfiles
+cd ~/dotfiles && bash install.sh
 ```
 
-## ✨ Key Customizations
+The script creates symlinks from `~/.config/` to this repo.
+Existing configs are backed up as `*.bak` before being replaced.
 
-### Niri
-- 8px gaps between windows
-- 3px gradient borders (pink → yellow)
-- Touchpad gestures for workspace navigation
-- Screenshots: `Print` (full screen), `Super+Shift+S` (area selection) → clipboard + file
+## Dependencies
 
-### Waybar
-- Minimal horizontal layout
-- Catppuccin Mocha colors
-- Network, workspaces, clock, CPU, memory, battery modules
+Make sure these are installed before running helix/fish:
 
-### Alacritty
-- Square windows (no decorations)
-- JetBrainsMono Nerd Font
-- 98% opacity
-
-### Helix
-- Relative line numbers
-- Auto-save enabled
-- Custom keybindings (Ctrl+S to save, Ctrl+P for file picker)
+- `helix` — editor
+- `typescript-language-server` — TS/JS LSP
+- `prettier` — formatter for TS/JS/JSX/TSX
+- `rust-analyzer` — Rust LSP (bundled with helix via `hx --grammar fetch`)
+- `starship` — prompt
+- `fnm` — Node.js version manager
+- `pnpm` — package manager
