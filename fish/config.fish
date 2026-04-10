@@ -33,9 +33,10 @@ end
 # Testcontainers: disable Ryuk (incompatible with Podman)
 set -gx TESTCONTAINERS_RYUK_DISABLED true
 
+# SSH — ProtonPass agent
+set -gx SSH_AUTH_SOCK "$HOME/.ssh/proton-pass-agent.sock"
+
 # Aliases
-alias sshkey="cat ~/.ssh/id_ed25519.pub"
-alias sshcopy="cat ~/.ssh/id_ed25519.pub | xclip -selection clipboard"
 
 # Starship prompt
 starship init fish | source
