@@ -37,6 +37,7 @@ set -gx TESTCONTAINERS_RYUK_DISABLED true
 set -gx SSH_AUTH_SOCK "$HOME/.ssh/proton-pass-agent.sock"
 
 # Aliases
+alias claude="$HOME/.claude/local/claude"
 
 # Starship prompt
 starship init fish | source
