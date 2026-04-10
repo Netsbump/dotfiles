@@ -6,21 +6,34 @@ set -Ux TLDR_LANGUAGE fr
 fish_add_path $HOME/.local/bin
 
 # .NET tools
-fish_add_path /usr/share/dotnet
-fish_add_path $HOME/.dotnet/tools
-
-# npm global packages
-fish_add_path $HOME/.npm-global/bin
-
-# fnm (Node.js version manager)
-if test -d $HOME/.local/share/fnm
-    fish_add_path $HOME/.local/share/fnm
-    fnm env --shell fish | source
+if test -d /usr/share/dotnet
+    fish_add_path /usr/share/dotnet
+end
+if test -d $HOME/.dotnet/tools
+    fish_add_path $HOME/.dotnet/tools
 end
 
+# fnm (Node.js version manager) — --use-on-cd switch auto via .nvmrc
+if test -d $HOME/.local/share/fnm
+    fish_add_path $HOME/.local/share/fnm
+    fnm env --use-on-cd --shell fish | source
+end
+
+# pnpm
+set -gx PNPM_HOME "$HOME/.local/share/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+    set -gx PATH "$PNPM_HOME" $PATH
+end
+
+# Podman socket for Docker-compatible tools (lazydocker, testcontainers, etc.)
+if test -S /run/user/(id -u)/podman/podman.sock
+    set -gx DOCKER_HOST "unix:///run/user/"(id -u)"/podman/podman.sock"
+end
+
+# Testcontainers: disable Ryuk (incompatible with Podman)
+set -gx TESTCONTAINERS_RYUK_DISABLED true
+
 # Aliases
-alias claude="$HOME/.claude/local/claude"
-alias hx="helix"
 alias sshkey="cat ~/.ssh/id_ed25519.pub"
 alias sshcopy="cat ~/.ssh/id_ed25519.pub | xclip -selection clipboard"
 
@@ -29,10 +42,3 @@ starship init fish | source
 
 # opencode
 fish_add_path $HOME/.opencode/bin
-
-# pnpm
-set -gx PNPM_HOME "$HOME/.local/share/pnpm"
-if not string match -q -- $PNPM_HOME $PATH
-  set -gx PATH "$PNPM_HOME" $PATH
-end
-# pnpm end

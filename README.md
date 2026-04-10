@@ -31,3 +31,6 @@ Make sure these are installed before running helix/fish:
 - `starship` — prompt
 - `fnm` — Node.js version manager
 - `pnpm` — package manager
+- `tealdeer` (or `tldr`) — simplified man pages
+- `podman` *(optional)* — enables `DOCKER_HOST` socket for lazydocker/testcontainers
+- `.NET SDK` *(optional)* — enables `dotnet` tools on PATH
