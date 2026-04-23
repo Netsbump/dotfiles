@@ -49,3 +49,6 @@ i = ":toggle lsp.display-inlay-hints"
 
 [keys.normal.Z]
 Z = ":write-quit-all"
+
+[keys.normal.space.t]
+z = ":toggle gutters.line-numbers.min-width 37 3"
