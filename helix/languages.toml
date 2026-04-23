@@ -47,9 +47,11 @@ auto-format = true
 command = "ltex-ls-plus"
 
 [language-server.ltex-ls-plus.config]
-ltex.language = "fr-FR"
+ltex.language = "fr"
 ltex.enabled = ["markdown", "text"]
 
 [[language]]
 name = "markdown"
 language-servers = ["ltex-ls-plus"]
+formatter = { command = "prettier", args = ["--parser", "markdown", "--prose-wrap", "always", "--print-width", "110"] }
+auto-format = true
