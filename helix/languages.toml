@@ -41,3 +41,15 @@ auto-format = true
 [[language]]
 name = "rust"
 auto-format = true
+
+# Correcteur orthographique/grammatical FR via LTeX+
+[language-server.ltex-ls-plus]
+command = "ltex-ls-plus"
+
+[language-server.ltex-ls-plus.config]
+ltex.language = "fr-FR"
+ltex.enabled = ["markdown", "text"]
+
+[[language]]
+name = "markdown"
+language-servers = ["ltex-ls-plus"]
