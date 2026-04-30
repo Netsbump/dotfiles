@@ -1,6 +1,6 @@
 # dotfiles
 
-Config files for Helix, Fish, and Alacritty.
+Config files for Helix, Fish, Alacritty, and Ghostty.
 
 ## Contents
 
@@ -9,6 +9,7 @@ Config files for Helix, Fish, and Alacritty.
 | [Helix](https://helix-editor.com) | `config.toml`, `languages.toml` |
 | [Fish](https://fishshell.com) | `config.fish` |
 | [Alacritty](https://alacritty.org) | `alacritty.toml`, `dank-theme.toml` |
+| [Ghostty](https://ghostty.org) | `config` |
 
 ## Install
 
@@ -20,17 +21,23 @@ cd ~/dotfiles && bash install.sh
 The script creates symlinks from `~/.config/` to this repo.
 Existing configs are backed up as `*.bak` before being replaced.
 
-## Dependencies
+## Tools used by these configs
 
-Make sure these are installed before running helix/fish:
+`install.sh` only creates symlinks in `~/.config`. It does **not** install packages.
 
-- `helix` — editor
-- `typescript-language-server` — TS/JS LSP
-- `prettier` — formatter for TS/JS/JSX/TSX
-- `rust-analyzer` — Rust LSP (bundled with helix via `hx --grammar fetch`)
-- `starship` — prompt
-- `fnm` — Node.js version manager
-- `pnpm` — package manager
-- `tealdeer` (or `tldr`) — simplified man pages
-- `podman` *(optional)* — enables `DOCKER_HOST` socket for lazydocker/testcontainers
-- `.NET SDK` *(optional)* — enables `dotnet` tools on PATH
+### Runtime tools (used by your configs)
+
+- `helix` — editor used by `helix/config.toml` and `helix/languages.toml`
+- `ghostty` — terminal needed only if you want to use `ghostty/config`
+- `typescript-language-server` — JS/TS LSP used in `helix/languages.toml`
+- `prettier` — formatter for JS/TS/JSX/TSX/Markdown in `helix/languages.toml`
+- `rust-analyzer` — Rust LSP used by Helix
+- `starship` — prompt used by `fish/config.fish`
+- `fnm` — Node.js version manager used by `fish/config.fish`
+- `tealdeer` (or `tldr`) — helper command used from Fish aliases/functions
+
+### Optional/dev tools (workflow only)
+
+- `pnpm` — Node workflow tool, not required for terminal/editor startup
+- `podman` *(optional)* — useful for container-based workflows
+- `.NET SDK` *(optional)* — only needed for dotnet-based projects/tools

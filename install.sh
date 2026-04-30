@@ -29,5 +29,8 @@ echo "-> Alacritty"
 link "$DOTFILES_DIR/alacritty/alacritty.toml"  "$HOME/.config/alacritty/alacritty.toml"
 link "$DOTFILES_DIR/alacritty/dank-theme.toml" "$HOME/.config/alacritty/dank-theme.toml"
 
+echo "-> Ghostty"
+link "$DOTFILES_DIR/ghostty/config" "$HOME/.config/ghostty/config"
+
 echo ""
 echo "Done! Restart your shell and helix for changes to take effect."
