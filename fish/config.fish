@@ -38,6 +38,7 @@ set -gx SSH_AUTH_SOCK "$HOME/.ssh/proton-pass-agent.sock"
 
 # Aliases
 alias claude="$HOME/.claude/local/claude"
+alias zed-update="curl -f https://zed.dev/install.sh | sh"
 
 # Starship prompt
 starship init fish | source
