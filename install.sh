@@ -32,5 +32,10 @@ link "$DOTFILES_DIR/alacritty/dank-theme.toml" "$HOME/.config/alacritty/dank-the
 echo "-> Ghostty"
 link "$DOTFILES_DIR/ghostty/config" "$HOME/.config/ghostty/config"
 
+echo "-> Yazi"
+link "$DOTFILES_DIR/yazi/yazi.toml" "$HOME/.config/yazi/yazi.toml"
+link "$DOTFILES_DIR/yazi/theme.toml" "$HOME/.config/yazi/theme.toml"
+link "$DOTFILES_DIR/yazi/package.toml" "$HOME/.config/yazi/package.toml"
+
 echo ""
-echo "Done! Restart your shell and helix for changes to take effect."
+echo "Done! Restart your shell, Helix, and Yazi for changes to take effect."
