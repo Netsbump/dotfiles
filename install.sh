@@ -29,6 +29,9 @@ echo "-> Alacritty"
 link "$DOTFILES_DIR/alacritty/alacritty.toml"  "$HOME/.config/alacritty/alacritty.toml"
 link "$DOTFILES_DIR/alacritty/dank-theme.toml" "$HOME/.config/alacritty/dank-theme.toml"
 
+echo "-> Zellij"
+link "$DOTFILES_DIR/zellij/config.kdl" "$HOME/.config/zellij/config.kdl"
+
 echo "-> Ghostty"
 link "$DOTFILES_DIR/ghostty/config" "$HOME/.config/ghostty/config"
 

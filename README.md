@@ -1,6 +1,6 @@
 # dotfiles
 
-Config files for Helix, Fish, Alacritty, Ghostty, and Yazi.
+Config files for Helix, Fish, Alacritty, Zellij, Ghostty, and Yazi.
 
 ## Contents
 
@@ -9,6 +9,7 @@ Config files for Helix, Fish, Alacritty, Ghostty, and Yazi.
 | [Helix](https://helix-editor.com) | `config.toml`, `languages.toml` |
 | [Fish](https://fishshell.com) | `config.fish` |
 | [Alacritty](https://alacritty.org) | `alacritty.toml`, `dank-theme.toml` |
+| [Zellij](https://zellij.dev) | `config.kdl` |
 | [Ghostty](https://ghostty.org) | `config` |
 | [Yazi](https://yazi-rs.github.io) | `yazi.toml`, `theme.toml`, `package.toml` |
 
@@ -30,6 +31,7 @@ Existing configs are backed up as `*.bak` before being replaced.
 
 - `helix` — editor used by `helix/config.toml` and `helix/languages.toml`
 - `ghostty` — terminal needed only if you want to use `ghostty/config`
+- `zellij` — terminal multiplexer using `zellij/config.kdl`
 - `yazi` — file manager using `yazi/yazi.toml` and `yazi/theme.toml`
 - `typescript-language-server` — JS/TS LSP used in `helix/languages.toml`
 - `prettier` — formatter for JS/TS/JSX/TSX/Markdown in `helix/languages.toml`
