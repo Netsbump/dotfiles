@@ -6,7 +6,7 @@ Config files for Helix, Fish, Alacritty, Zellij, Ghostty, and Yazi.
 
 | App | Files |
 |-----|-------|
-| [Helix](https://helix-editor.com) | `config.toml`, `languages.toml` |
+| [Helix](https://helix-editor.com) | `config.toml`, `languages.toml`, `themes/modern-vesper.toml` |
 | [Fish](https://fishshell.com) | `config.fish` |
 | [Alacritty](https://alacritty.org) | `alacritty.toml`, `dank-theme.toml` |
 | [Zellij](https://zellij.dev) | `config.kdl` |

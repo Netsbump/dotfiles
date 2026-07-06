@@ -1,0 +1,156 @@
+# Modern Vesper for Helix
+# Palette aligned with the Modern Vesper theme used in Zed/Pi.
+
+# Syntax highlighting
+attribute = "text"
+type = "peach"
+"type.enum.variant" = "tan"
+
+constructor = "white"
+constant = "peach"
+"constant.character" = "mint"
+"constant.character.escape" = "purple_pink"
+
+string = "mint"
+"string.regexp" = "lilac"
+"string.special" = "lilac"
+"string.special.path" = "text"
+"string.special.url" = { fg = "mint", underline = { style = "line" } }
+
+comment = { fg = "dark_text", modifiers = ["italic"] }
+
+variable = "white"
+"variable.parameter" = "white"
+"variable.builtin" = "salmon"
+"variable.other.member" = "peach"
+"variable.other.member.type" = "white"
+
+label = "peach"
+operator = "purple_pink"
+punctuation = "text"
+"punctuation.bracket" = "text"
+"punctuation.delimiter" = "text"
+"punctuation.special" = "mint"
+
+keyword = "purple_pink"
+"keyword.operator" = "purple_pink"
+"keyword.function" = "purple_pink"
+"keyword.directive" = "purple_pink"
+"keyword.storage.type" = "purple_pink"
+"keyword.control.repeat" = "purple_pink"
+"keyword.control.import" = "purple_pink"
+"keyword.control.conditional" = { fg = "purple_pink", modifiers = ["italic"] }
+
+function = "warm_peach"
+"function.macro" = "lilac"
+tag = "peach"
+namespace = { fg = "peach", modifiers = ["italic"] }
+special = "mint"
+
+# Markup
+"markup.heading.1" = "peach"
+"markup.heading.2" = "warm_peach"
+"markup.heading.3" = "tan"
+"markup.heading.4" = "green"
+"markup.heading.5" = "lilac"
+"markup.heading.6" = "lavender"
+"markup.list" = "peach"
+"markup.list.unchecked" = "text"
+"markup.list.checked" = "green"
+"markup.bold" = { fg = "peach", modifiers = ["bold"] }
+"markup.italic" = { fg = "lilac", modifiers = ["italic"] }
+"markup.link.url" = { fg = "mint", modifiers = ["italic", "underlined"] }
+"markup.link.text" = "mint"
+"markup.link.label" = "lavender"
+"markup.raw" = "lilac"
+"markup.quote" = "text"
+
+# Diffs
+"diff.plus" = "mint"
+"diff.minus" = "error_red"
+"diff.delta" = "peach"
+
+# Diagnostics
+error = "error_red"
+warning = "peach"
+info = "mint"
+hint = "text"
+"diagnostic.error" = { underline = { color = "error_red", style = "curl" } }
+"diagnostic.warning" = { underline = { color = "peach", style = "curl" } }
+"diagnostic.info" = { underline = { color = "mint", style = "curl" } }
+"diagnostic.hint" = { underline = { color = "text", style = "curl" } }
+"diagnostic.unnecessary" = { modifiers = ["dim"] }
+"diagnostic.deprecated" = { modifiers = ["crossed_out"] }
+
+# User interface
+"ui.background" = { fg = "white", bg = "bg" }
+"ui.linenr" = { fg = "line_num" }
+"ui.linenr.selected" = { fg = "peach", modifiers = ["bold"] }
+
+"ui.statusline" = { fg = "text", bg = "surface" }
+"ui.statusline.inactive" = { fg = "line_num", bg = "border" }
+"ui.statusline.normal" = { fg = "bg", bg = "peach", modifiers = ["bold"] }
+"ui.statusline.insert" = { fg = "bg", bg = "green", modifiers = ["bold"] }
+"ui.statusline.select" = { fg = "bg", bg = "lilac", modifiers = ["bold"] }
+
+"ui.popup" = { fg = "white", bg = "surface" }
+"ui.window" = { fg = "border" }
+"ui.help" = { fg = "text", bg = "surface" }
+
+"ui.bufferline" = { fg = "text", bg = "border" }
+"ui.bufferline.active" = { fg = "peach", bg = "bg", underline = { color = "peach", style = "line" } }
+"ui.bufferline.background" = { bg = "border" }
+
+"ui.text" = "white"
+"ui.text.focus" = { fg = "white", bg = "selected", modifiers = ["bold"] }
+"ui.text.inactive" = "dark_text"
+"ui.text.directory" = "mint"
+
+"ui.virtual" = "line_num"
+"ui.virtual.ruler" = { bg = "surface" }
+"ui.virtual.indent-guide" = "border"
+"ui.virtual.inlay-hint" = { fg = "dark_text", bg = "surface" }
+"ui.virtual.whitespace" = "line_num"
+"ui.virtual.jump-label" = { fg = "peach", modifiers = ["bold"] }
+
+"ui.selection" = { bg = "selected" }
+"ui.highlight" = { bg = "hover", modifiers = ["bold"] }
+
+"ui.cursor" = { fg = "bg", bg = "text" }
+"ui.cursor.primary" = { fg = "bg", bg = "peach" }
+"ui.cursor.match" = { fg = "peach", modifiers = ["bold"] }
+"ui.cursor.primary.normal" = { fg = "bg", bg = "peach" }
+"ui.cursor.primary.insert" = { fg = "bg", bg = "green" }
+"ui.cursor.primary.select" = { fg = "bg", bg = "lilac" }
+"ui.cursor.normal" = { fg = "bg", bg = "text" }
+"ui.cursor.insert" = { fg = "bg", bg = "green" }
+"ui.cursor.select" = { fg = "bg", bg = "lilac" }
+"ui.cursorline.primary" = { bg = "surface" }
+"ui.cursorline.secondary" = { bg = "surface" }
+
+"ui.menu" = { fg = "text", bg = "surface" }
+"ui.menu.selected" = { fg = "white", bg = "selected", modifiers = ["bold"] }
+"ui.menu.scroll" = { fg = "peach" }
+
+[palette]
+bg = "#0D0D0D"
+surface = "#1A1A1A"
+white = "#FFFFFF"
+text = "#A0A0A0"
+dark_text = "#7E7E7E"
+green = "#90B99F"
+mint = "#99FFE4"
+peach = "#FFC799"
+warm_peach = "#F6C094"
+purple_pink = "#FAACFE"
+pink = "#EA83A5"
+lilac = "#E29ECA"
+salmon = "#F5A191"
+error_red = "#FF8080"
+lavender = "#ACA1CF"
+tan = "#E6B99D"
+border = "#101010"
+hover = "#282828"
+selected = "#232323"
+search_bg = "#612A0F"
+line_num = "#505050"

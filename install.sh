@@ -21,6 +21,8 @@ echo ""
 echo "-> Helix"
 link "$DOTFILES_DIR/helix/config.toml"     "$HOME/.config/helix/config.toml"
 link "$DOTFILES_DIR/helix/languages.toml"  "$HOME/.config/helix/languages.toml"
+link "$DOTFILES_DIR/helix/themes/modern-vesper.toml" "$HOME/.config/helix/themes/modern-vesper.toml"
+link "$DOTFILES_DIR/helix/runtime/queries/typescript/highlights.scm" "$HOME/.config/helix/runtime/queries/typescript/highlights.scm"
 
 echo "-> Fish"
 link "$DOTFILES_DIR/fish/config.fish"      "$HOME/.config/fish/config.fish"
