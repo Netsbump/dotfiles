@@ -1,6 +1,6 @@
 # dotfiles
 
-Config files for Helix, Fish, Alacritty, Zellij, Ghostty, and Yazi.
+Config files for Helix, Fish, Alacritty, Zellij, Herdr, Ghostty, and Yazi.
 
 ## Contents
 
@@ -10,6 +10,7 @@ Config files for Helix, Fish, Alacritty, Zellij, Ghostty, and Yazi.
 | [Fish](https://fishshell.com) | `config.fish` |
 | [Alacritty](https://alacritty.org) | `alacritty.toml`, `dank-theme.toml` |
 | [Zellij](https://zellij.dev) | `config.kdl` |
+| [Herdr](https://herdr.dev) | `config.toml`, `install-plugins.sh` |
 | [Ghostty](https://ghostty.org) | `config` |
 | [Yazi](https://yazi-rs.github.io) | `yazi.toml`, `theme.toml`, `package.toml` |
 
@@ -25,7 +26,13 @@ Existing configs are backed up as `*.bak` before being replaced.
 
 ## Tools used by these configs
 
-`install.sh` only creates symlinks in `~/.config`. It does **not** install packages.
+`install.sh` only creates symlinks in `~/.config`. It does **not** install packages or Herdr plugins.
+
+Herdr plugins are managed separately to avoid hidden network installs during dotfile setup:
+
+```bash
+./herdr/install-plugins.sh
+```
 
 ### Runtime tools (used by your configs)
 
@@ -33,6 +40,7 @@ Existing configs are backed up as `*.bak` before being replaced.
 - `ghostty` — terminal needed only if you want to use `ghostty/config`
 - `zellij` — terminal multiplexer using `zellij/config.kdl`
 - `yazi` — file manager using `yazi/yazi.toml` and `yazi/theme.toml`
+- `herdr` — terminal workspace manager using `herdr/config.toml`
 - `typescript-language-server` — JS/TS LSP used in `helix/languages.toml`
 - `prettier` — formatter for JS/TS/JSX/TSX/Markdown in `helix/languages.toml`
 - `rust-analyzer` — Rust LSP used by Helix

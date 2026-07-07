@@ -34,6 +34,9 @@ link "$DOTFILES_DIR/alacritty/dank-theme.toml" "$HOME/.config/alacritty/dank-the
 echo "-> Zellij"
 link "$DOTFILES_DIR/zellij/config.kdl" "$HOME/.config/zellij/config.kdl"
 
+echo "-> Herdr"
+link "$DOTFILES_DIR/herdr/config.toml" "$HOME/.config/herdr/config.toml"
+
 echo "-> Ghostty"
 link "$DOTFILES_DIR/ghostty/config" "$HOME/.config/ghostty/config"
 
