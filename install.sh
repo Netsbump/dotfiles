@@ -37,6 +37,9 @@ link "$DOTFILES_DIR/zellij/config.kdl" "$HOME/.config/zellij/config.kdl"
 echo "-> Herdr"
 link "$DOTFILES_DIR/herdr/config.toml" "$HOME/.config/herdr/config.toml"
 
+echo "-> Lazygit"
+link "$DOTFILES_DIR/lazygit/config.yml" "$HOME/.config/lazygit/config.yml"
+
 echo "-> Ghostty"
 link "$DOTFILES_DIR/ghostty/config" "$HOME/.config/ghostty/config"
 
@@ -46,4 +49,4 @@ link "$DOTFILES_DIR/yazi/theme.toml" "$HOME/.config/yazi/theme.toml"
 link "$DOTFILES_DIR/yazi/package.toml" "$HOME/.config/yazi/package.toml"
 
 echo ""
-echo "Done! Restart your shell, Helix, and Yazi for changes to take effect."
+echo "Done! Restart your shell, Helix, Lazygit, and Yazi for changes to take effect."

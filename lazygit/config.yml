@@ -1,0 +1,8 @@
+gui:
+  theme:
+    # Avoid the default blue/white selection highlight rendering as white-on-white
+    # in the terminal theme. Keep selected rows dark and readable.
+    selectedLineBgColor:
+      - "#232323"
+    inactiveViewSelectedLineBgColor:
+      - "#232323"

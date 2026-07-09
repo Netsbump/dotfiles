@@ -1,6 +1,6 @@
 # dotfiles
 
-Config files for Helix, Fish, Alacritty, Zellij, Herdr, Ghostty, and Yazi.
+Config files for Helix, Fish, Alacritty, Zellij, Herdr, Lazygit, Ghostty, and Yazi.
 
 ## Contents
 
@@ -11,6 +11,7 @@ Config files for Helix, Fish, Alacritty, Zellij, Herdr, Ghostty, and Yazi.
 | [Alacritty](https://alacritty.org) | `alacritty.toml`, `dank-theme.toml` |
 | [Zellij](https://zellij.dev) | `config.kdl` |
 | [Herdr](https://herdr.dev) | `config.toml`, `install-plugins.sh` |
+| [Lazygit](https://github.com/jesseduffield/lazygit) | `config.yml` |
 | [Ghostty](https://ghostty.org) | `config` |
 | [Yazi](https://yazi-rs.github.io) | `yazi.toml`, `theme.toml`, `package.toml` |
 
@@ -41,6 +42,7 @@ Herdr plugins are managed separately to avoid hidden network installs during dot
 - `zellij` — terminal multiplexer using `zellij/config.kdl`
 - `yazi` — file manager using `yazi/yazi.toml` and `yazi/theme.toml`
 - `herdr` — terminal workspace manager using `herdr/config.toml`
+- `lazygit` — Git TUI using `lazygit/config.yml`
 - `typescript-language-server` — JS/TS LSP used in `helix/languages.toml`
 - `prettier` — formatter for JS/TS/JSX/TSX/Markdown in `helix/languages.toml`
 - `rust-analyzer` — Rust LSP used by Helix
