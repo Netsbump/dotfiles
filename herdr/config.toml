@@ -2,7 +2,7 @@ onboarding = false
 # Herdr user config
 
 [[keys.command]]
-key = "ctrl+g"
+key = "prefix+ctrl+g"
 type = "plugin_action"
 command = "persiyanov.reviewr.toggle"
 
