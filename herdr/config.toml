@@ -1,16 +1,23 @@
 onboarding = false
+
+[theme]
+name = "vesper"
+
 # Herdr user config
 
+# Toggle reviewr sidebar.
 [[keys.command]]
 key = "prefix+ctrl+g"
 type = "plugin_action"
 command = "persiyanov.reviewr.toggle"
 
+# Open the git-aware file viewer in a split pane.
 [[keys.command]]
 key = "prefix+f"
 type = "shell"
 command = "herdr plugin action invoke open-file-viewer --plugin herdr-file-viewer"
 
+# Open the git-aware file viewer in its own tab.
 [[keys.command]]
 key = "prefix+shift+f"
 type = "shell"
