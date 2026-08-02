@@ -7,11 +7,11 @@ link() {
   local src="$1"
   local dst="$2"
   mkdir -p "$(dirname "$dst")"
-  if [ -f "$dst" ] && [ ! -L "$dst" ]; then
+  if [ -e "$dst" ] && [ ! -L "$dst" ]; then
     echo "  [backup] $dst -> $dst.bak"
     mv "$dst" "$dst.bak"
   fi
-  ln -sf "$src" "$dst"
+  ln -sfn "$src" "$dst"
   echo "  [linked] $dst"
 }
 
@@ -22,6 +22,7 @@ echo "-> Helix"
 link "$DOTFILES_DIR/helix/config.toml"     "$HOME/.config/helix/config.toml"
 link "$DOTFILES_DIR/helix/languages.toml"  "$HOME/.config/helix/languages.toml"
 link "$DOTFILES_DIR/helix/themes/modern-vesper.toml" "$HOME/.config/helix/themes/modern-vesper.toml"
+link "$DOTFILES_DIR/helix/themes/chapter-one.toml" "$HOME/.config/helix/themes/chapter-one.toml"
 link "$DOTFILES_DIR/helix/runtime/queries/typescript/highlights.scm" "$HOME/.config/helix/runtime/queries/typescript/highlights.scm"
 
 echo "-> Fish"
@@ -36,6 +37,10 @@ link "$DOTFILES_DIR/zellij/config.kdl" "$HOME/.config/zellij/config.kdl"
 
 echo "-> Herdr"
 link "$DOTFILES_DIR/herdr/config.toml" "$HOME/.config/herdr/config.toml"
+link "$DOTFILES_DIR/herdr/sounds" "$HOME/.config/herdr/sounds"
+link "$DOTFILES_DIR/herdr/herdr-wizz-watch" "$HOME/.local/bin/herdr-wizz-watch"
+link "$DOTFILES_DIR/herdr/herdr-wizz-watch.service" "$HOME/.config/systemd/user/herdr-wizz-watch.service"
+chmod +x "$DOTFILES_DIR/herdr/herdr-wizz-watch"
 
 echo "-> Lazygit"
 link "$DOTFILES_DIR/lazygit/config.yml" "$HOME/.config/lazygit/config.yml"

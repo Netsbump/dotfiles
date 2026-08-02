@@ -2,27 +2,33 @@
 # Palette aligned with the Modern Vesper theme used in Zed/Pi.
 
 # Syntax highlighting
-attribute = "text"
+attribute = "peach"
 type = "peach"
-"type.enum.variant" = "tan"
+"type.builtin" = "peach"
+"type.enum.variant" = "peach"
 
+# Helix's ECMA query marks every PascalCase identifier as `constructor`,
+# including imported symbols. Keep it white to match Zed's import list;
+# real type positions still use `type = peach` above.
 constructor = "white"
-constant = "peach"
+constant = "purple_pink"
+"constant.builtin" = "warm_peach"
+"constant.numeric" = "peach"
 "constant.character" = "mint"
-"constant.character.escape" = "purple_pink"
+"constant.character.escape" = "peach"
 
 string = "mint"
-"string.regexp" = "lilac"
-"string.special" = "lilac"
-"string.special.path" = "text"
+"string.regexp" = "mint"
+"string.special" = "mint"
+"string.special.path" = "mint"
 "string.special.url" = { fg = "mint", underline = { style = "line" } }
 
-comment = { fg = "dark_text", modifiers = ["italic"] }
+comment = "text"
 
 variable = "white"
 "variable.parameter" = "white"
-"variable.builtin" = "salmon"
-"variable.other.member" = "peach"
+"variable.builtin" = "purple_pink"
+"variable.other.member" = "white"
 "variable.other.member.type" = "white"
 
 label = "peach"
@@ -30,7 +36,7 @@ operator = "purple_pink"
 punctuation = "text"
 "punctuation.bracket" = "text"
 "punctuation.delimiter" = "text"
-"punctuation.special" = "mint"
+"punctuation.special" = "text"
 
 keyword = "purple_pink"
 "keyword.operator" = "purple_pink"
@@ -42,7 +48,9 @@ keyword = "purple_pink"
 "keyword.control.conditional" = { fg = "purple_pink", modifiers = ["italic"] }
 
 function = "warm_peach"
-"function.macro" = "lilac"
+"function.method" = "warm_peach"
+"function.builtin" = "warm_peach"
+"function.macro" = "warm_peach"
 tag = "peach"
 namespace = { fg = "peach", modifiers = ["italic"] }
 special = "mint"
@@ -109,7 +117,7 @@ hint = "text"
 "ui.virtual" = "line_num"
 "ui.virtual.ruler" = { bg = "surface" }
 "ui.virtual.indent-guide" = "border"
-"ui.virtual.inlay-hint" = { fg = "dark_text", bg = "surface" }
+"ui.virtual.inlay-hint" = { fg = "dark_text", bg = "bg" }
 "ui.virtual.whitespace" = "line_num"
 "ui.virtual.jump-label" = { fg = "peach", modifiers = ["bold"] }
 

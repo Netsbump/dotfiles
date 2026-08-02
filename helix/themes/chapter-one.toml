@@ -1,0 +1,157 @@
+# Chapter One for Helix
+# Cozy light theme derived from the Chapter One VS Code theme.
+# Principle: keep Vesper's small vocabulary, but use darker readable inks on a warm paper background.
+
+# Syntax highlighting
+attribute = "copper"
+type = "copper"
+"type.builtin" = "copper"
+"type.enum.variant" = "copper"
+
+constructor = "copper"
+constant = "copper"
+"constant.character" = "blue"
+"constant.character.escape" = "red"
+
+string = "blue"
+"string.regexp" = "red"
+"string.special" = "blue"
+"string.special.path" = "blue"
+"string.special.url" = { fg = "blue", underline = { style = "line" } }
+
+comment = { fg = "comment", modifiers = ["italic"] }
+
+variable = "ink"
+"variable.parameter" = "ink"
+"variable.builtin" = "red"
+"variable.other.member" = "ink"
+"variable.other.member.type" = "copper"
+
+label = "copper"
+operator = "red"
+punctuation = "muted"
+"punctuation.bracket" = "muted"
+"punctuation.delimiter" = "muted"
+"punctuation.special" = "red"
+
+keyword = "red"
+"keyword.operator" = "red"
+"keyword.function" = "red"
+"keyword.directive" = "red"
+"keyword.storage.type" = "red"
+"keyword.control.repeat" = "red"
+"keyword.control.import" = "red"
+"keyword.control.conditional" = { fg = "red", modifiers = ["italic"] }
+
+function = "copper"
+"function.method" = "copper"
+"function.builtin" = "copper"
+"function.macro" = "sepia"
+tag = "copper"
+namespace = { fg = "copper", modifiers = ["italic"] }
+special = "blue"
+
+# Markup
+"markup.heading.1" = "red"
+"markup.heading.2" = "copper"
+"markup.heading.3" = "sepia"
+"markup.heading.4" = "blue"
+"markup.heading.5" = "green"
+"markup.heading.6" = "muted"
+"markup.list" = "red"
+"markup.list.unchecked" = "ink"
+"markup.list.checked" = "green"
+"markup.bold" = { fg = "red", modifiers = ["bold"] }
+"markup.italic" = { fg = "copper", modifiers = ["italic"] }
+"markup.link.url" = { fg = "blue", modifiers = ["italic", "underlined"] }
+"markup.link.text" = "blue"
+"markup.link.label" = "sepia"
+"markup.raw" = "copper"
+"markup.quote" = "muted"
+
+# Diffs
+"diff.plus" = "green"
+"diff.minus" = "red"
+"diff.delta" = "copper"
+
+# Diagnostics
+error = "error_red"
+warning = "warning"
+info = "blue"
+hint = "muted"
+"diagnostic.error" = { underline = { color = "error_red", style = "curl" } }
+"diagnostic.warning" = { underline = { color = "warning", style = "curl" } }
+"diagnostic.info" = { underline = { color = "blue", style = "curl" } }
+"diagnostic.hint" = { underline = { color = "muted", style = "curl" } }
+"diagnostic.unnecessary" = { modifiers = ["dim"] }
+"diagnostic.deprecated" = { modifiers = ["crossed_out"] }
+
+# User interface
+"ui.background" = { fg = "ink", bg = "bg" }
+"ui.linenr" = { fg = "line_num" }
+"ui.linenr.selected" = { fg = "red", modifiers = ["bold"] }
+
+"ui.statusline" = { fg = "ink", bg = "surface" }
+"ui.statusline.inactive" = { fg = "muted", bg = "surface" }
+"ui.statusline.normal" = { fg = "bg", bg = "red", modifiers = ["bold"] }
+"ui.statusline.insert" = { fg = "bg", bg = "green", modifiers = ["bold"] }
+"ui.statusline.select" = { fg = "bg", bg = "blue", modifiers = ["bold"] }
+
+"ui.popup" = { fg = "ink", bg = "surface" }
+"ui.window" = { fg = "border" }
+"ui.help" = { fg = "ink", bg = "surface" }
+
+"ui.bufferline" = { fg = "muted", bg = "surface" }
+"ui.bufferline.active" = { fg = "ink", bg = "bg", underline = { color = "red", style = "line" } }
+"ui.bufferline.background" = { bg = "surface" }
+
+"ui.text" = "ink"
+"ui.text.focus" = { fg = "ink", bg = "selected", modifiers = ["bold"] }
+"ui.text.inactive" = "muted"
+"ui.text.directory" = "blue"
+
+"ui.virtual" = "line_num"
+"ui.virtual.ruler" = { bg = "surface" }
+"ui.virtual.indent-guide" = "border"
+"ui.virtual.inlay-hint" = { fg = "muted", bg = "surface" }
+"ui.virtual.whitespace" = "line_num"
+"ui.virtual.jump-label" = { fg = "red", modifiers = ["bold"] }
+
+"ui.selection" = { bg = "selected" }
+"ui.highlight" = { bg = "hover", modifiers = ["bold"] }
+
+"ui.cursor" = { fg = "bg", bg = "ink" }
+"ui.cursor.primary" = { fg = "bg", bg = "red" }
+"ui.cursor.match" = { fg = "red", modifiers = ["bold"] }
+"ui.cursor.primary.normal" = { fg = "bg", bg = "red" }
+"ui.cursor.primary.insert" = { fg = "bg", bg = "green" }
+"ui.cursor.primary.select" = { fg = "bg", bg = "blue" }
+"ui.cursor.normal" = { fg = "bg", bg = "ink" }
+"ui.cursor.insert" = { fg = "bg", bg = "green" }
+"ui.cursor.select" = { fg = "bg", bg = "blue" }
+"ui.cursorline.primary" = { bg = "cursorline" }
+"ui.cursorline.secondary" = { bg = "cursorline" }
+
+"ui.menu" = { fg = "ink", bg = "surface" }
+"ui.menu.selected" = { fg = "ink", bg = "selected", modifiers = ["bold"] }
+"ui.menu.scroll" = { fg = "red" }
+
+[palette]
+bg = "#F1E2D1"
+surface = "#E7D2BD"
+surface_soft = "#EDE0D1"
+ink = "#2C1810"
+muted = "#7A6F67"
+comment = "#6A7680"
+line_num = "#6A7680"
+red = "#BB0000"
+blue = "#0076C5"
+copper = "#9A5A2E"
+sepia = "#8B4513"
+green = "#1E8449"
+warning = "#B7791F"
+error_red = "#BB0000"
+border = "#D8C4B0"
+hover = "#E6CDBF"
+selected = "#D4C4B7"
+cursorline = "#ECDCCB"

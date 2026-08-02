@@ -22,3 +22,8 @@ command = "herdr plugin action invoke open-file-viewer --plugin herdr-file-viewe
 key = "prefix+shift+f"
 type = "shell"
 command = "herdr plugin action invoke open-file-viewer-tab --plugin herdr-file-viewer"
+
+[ui.sound]
+enabled = true
+done_path = "sounds/msn-message.mp3"
+request_path = "sounds/nudge.mp3"

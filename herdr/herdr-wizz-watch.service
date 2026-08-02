@@ -1,0 +1,15 @@
+[Unit]
+Description=Herdr MSN Wizz watcher
+After=default.target
+
+[Service]
+Type=simple
+ExecStart=%h/.local/bin/herdr-wizz-watch
+Restart=always
+RestartSec=5
+Environment=HERDR_WIZZ_DELAY_SECONDS=300
+Environment=HERDR_WIZZ_POLL_SECONDS=5
+Environment=HERDR_WIZZ_STATUSES=done
+
+[Install]
+WantedBy=default.target

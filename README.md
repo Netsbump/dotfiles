@@ -10,7 +10,7 @@ Config files for Helix, Fish, Alacritty, Zellij, Herdr, Lazygit, Ghostty, and Ya
 | [Fish](https://fishshell.com) | `config.fish` |
 | [Alacritty](https://alacritty.org) | `alacritty.toml`, `dank-theme.toml` |
 | [Zellij](https://zellij.dev) | `config.kdl` |
-| [Herdr](https://herdr.dev) | `config.toml`, `install-plugins.sh` |
+| [Herdr](https://herdr.dev) | `config.toml`, `sounds/`, `herdr-wizz-watch`, `herdr-wizz-watch.service`, `install-plugins.sh` |
 | [Lazygit](https://github.com/jesseduffield/lazygit) | `config.yml` |
 | [Ghostty](https://ghostty.org) | `config` |
 | [Yazi](https://yazi-rs.github.io) | `yazi.toml`, `theme.toml`, `package.toml` |
@@ -33,6 +33,30 @@ Herdr plugins are managed separately to avoid hidden network installs during dot
 
 ```bash
 ./herdr/install-plugins.sh
+```
+
+### Herdr sounds and MSN wizz watcher
+
+The Herdr config uses relative sound paths:
+
+```toml
+done_path = "sounds/msn-message.mp3"
+request_path = "sounds/nudge.mp3"
+```
+
+`install.sh` links `herdr/sounds` into `~/.config/herdr/sounds`, so the mp3 files travel with the dotfiles repo.
+
+To enable the “wizz if a done task stays unread for 5 minutes” watcher on a machine:
+
+```bash
+systemctl --user daemon-reload
+systemctl --user enable --now herdr-wizz-watch.service
+```
+
+The watcher needs one audio player. On Fedora, for example:
+
+```bash
+sudo dnf install mpg123
 ```
 
 ### Runtime tools (used by your configs)
